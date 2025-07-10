@@ -1,0 +1,92 @@
+/* CSS to hide both navigation menu and hamburger on mobile devices, show only hamburger on desktop */
+
+/* Hide the regular navigation menu items on all screen sizes with maximum specificity */
+body .navbar-2 .nav-menu.w-nav-menu,
+.nav-menu,
+.w-nav-menu,
+nav[role="navigation"] {
+  display: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+/* Target and hide each individual nav link for extra assurance */
+.nav-link.w-nav-link {
+  display: none !important;
+}
+
+/* Hide the hamburger menu on mobile devices (under 767px) */
+@media screen and (max-width: 767px) {
+  body .navbar-2 .menu-button-2.w-nav-button,
+  .menu-button-2,
+  .w-nav-button,
+  .icon.w-icon-nav-menu {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+}
+
+/* Only show hamburger on larger screens (tablet and above) */
+@media screen and (min-width: 768px) {
+  body .navbar-2 .menu-button-2.w-nav-button,
+  .menu-button-2,
+  .w-nav-button {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Style for the expanded menu when clicked */
+.w-nav-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Ensure menu button is positioned correctly */
+.w-nav-button {
+  position: relative;
+  float: right;
+  cursor: pointer;
+}
+
+/* Make the expanded menu fullscreen */
+.w-nav-overlay [data-nav-menu-open] {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  width: 200px !important;
+}
+
+/* Style for menu items in the dropdown */
+.w-nav-overlay .nav-link {
+  display: block;
+  padding: 10px 15px !important;
+  color: white !important;
+  text-align: left;
+  margin: 0 !important;
+  width: 100%;
+}
+
+/* Active and hover states for dropdown items */
+.w-nav-overlay .nav-link:hover,
+.w-nav-overlay .nav-link.w--current {
+  background-color: #444;
+  text-decoration: none !important;
+}

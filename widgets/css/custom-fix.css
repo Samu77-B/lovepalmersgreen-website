@@ -1,0 +1,40 @@
+/* Padding fix for home page - Ultimate version */
+
+/* Target all elements on the home page that might have padding */
+[data-wf-page="67f01a4044bdf3418dd536ab"] .hero,
+[data-wf-page="67f01a4044bdf3418dd536ab"] .container,
+[data-wf-page="67f01a4044bdf3418dd536ab"] .hero.cc-store-home-wrap,
+[data-wf-page="67f01a4044bdf3418dd536ab"] section,
+[data-wf-page="67f01a4044bdf3418dd536ab"] .w-container,
+[data-wf-page="67f01a4044bdf3418dd536ab"] .w-layout-blockcontainer.container-5.w-container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Force child elements to have consistent padding */
+[data-wf-page="67f01a4044bdf3418dd536ab"] .w-layout-blockcontainer.container-5.w-container > * {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+/* Only hero section has zero padding for children */
+[data-wf-page="67f01a4044bdf3418dd536ab"] .hero.cc-store-home-wrap > * {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Reset padding for header/footer to match other pages */
+[data-wf-page="67f01a4044bdf3418dd536ab"] .navbar-2 {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+/* Reset the container specifically for page sections */
+[data-wf-page="67f01a4044bdf3418dd536ab"] .hero .container,
+[data-wf-page="67f01a4044bdf3418dd536ab"] .greysection .container,
+[data-wf-page="67f01a4044bdf3418dd536ab"] .footerark .container {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}

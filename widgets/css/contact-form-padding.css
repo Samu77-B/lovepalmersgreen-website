@@ -1,0 +1,77 @@
+/* 
+ * Contact Form Padding Styles
+ * Adds spacing and padding to the contact form sections
+ */
+
+/* Main contact form container padding */
+.contact-form-grid {
+  padding: 40px !important;
+}
+
+/* Contact form wrap with additional padding */
+.contact-form-wrap {
+  padding: 30px !important;
+  background-color: #ffffff !important;
+  border-radius: 10px !important;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08) !important;
+}
+
+/* Details section beside form */
+#w-node-cec23962-3070-cb68-f915-574cfb69543f-29387941 {
+  padding: 30px !important;
+  background-color: #f8f8f8 !important;
+  border-radius: 10px !important;
+  margin-left: 20px !important;
+}
+
+/* Details wrap with spacing */
+.details-wrap {
+  margin-bottom: 30px !important;
+  padding: 10px !important;
+}
+
+/* Spacing for heading area */
+.contact-form-heading-wrap {
+  margin-bottom: 25px !important;
+  padding: 10px 0 !important;
+}
+
+/* Adding space to the overall container */
+.hero.greysection .container {
+  padding: 50px 40px !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+/* Make Cognito form inputs more spacious */
+.cognito input[type="text"],
+.cognito input[type="email"],
+.cognito textarea {
+  padding: 12px !important;
+  margin-bottom: 15px !important;
+  border-radius: 6px !important;
+}
+
+/* Larger submit button with better styling */
+.cognito button[type="submit"],
+.cognito input[type="submit"] {
+  padding: 12px 30px !important;
+  font-size: 16px !important;
+  background-color: #93c13d !important;
+  border: none !important;
+  color: white !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s !important;
+}
+
+.cognito button[type="submit"]:hover,
+.cognito input[type="submit"]:hover {
+  background-color: #7ba32f !important;
+}
+
+/* Additional section padding */
+section .w-layout-blockcontainer.container-5 {
+  padding: 40px 30px !important;
+  margin: 30px auto !important;
+}

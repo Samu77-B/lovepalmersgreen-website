@@ -1,0 +1,69 @@
+/* Fix for removing white gaps around header and footer */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.body {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-2.w-nav {
+  margin: 0;
+  padding: 15px 40px; /* Increased padding top/bottom and left/right */
+  width: 100vw; /* Make the navbar full width of viewport */
+  max-width: 100%; /* Ensure it doesn't cause overflow */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Add spacing between navigation links */
+.nav-menu.w-nav-menu {
+  margin-left: auto;
+}
+
+.nav-link.w-nav-link {
+  margin: 0 10px; /* Add space between nav links */
+  padding: 8px 15px; /* Add padding inside each nav link */
+}
+
+.footer {
+  margin: 0;
+  padding: 30px 40px; /* Add substantial padding inside the footer */
+  width: 100vw; /* Make the footer full width of viewport */
+  max-width: 100%; /* Ensure it doesn't cause overflow */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Add spacing for footer elements */
+.footer-logo-link {
+  margin-bottom: 20px; /* Space below logo */
+}
+
+.footer-link {
+  margin: 5px 0; /* Vertical spacing between footer links */
+  padding: 5px 0; /* Padding inside footer links */
+}
+
+.footer-heading {
+  margin-top: 15px;
+  margin-bottom: 15px; /* Space around headings */
+}
+
+/* For IE and older browsers */
+html, body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* Fix for any section containers */
+section {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+}
