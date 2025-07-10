@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Palmers Green News</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2 {
+            color: #333;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-size: 28px;
+        }
+        .date {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        p {
+            margin-bottom: 16px;
+        }
+        .news-item { margin-bottom: 15px; }
+        .news-source { color: #666; font-size: 0.9em; }
+        .error { color: red; }
+        .api-key-info { 
+            background: #f8f8f8; 
+            padding: 10px; 
+            margin-top: 20px;
+            border-left: 3px solid #ccc;
+        }
+        .news-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .refresh-button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .refresh-button:hover {
+            background-color: #45a049;
+        }
+        .loading {
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="palmers-green-news">
+        <div class="news-header">
+            <button id="refresh-button" class="refresh-button" onclick="refreshNews()">Refresh News</button>
+        </div>
+        <div id="news-container">Loading news...</div>
+        <div id="api-key-info" class="api-key-info" style="display:none;">
+            <h3>API Key Required</h3>
+            <p>To use this news widget, you'll need a free API key from <a href="https://rss2json.com" target="_blank">rss2json.com</a>.</p>
+            <p>Once you have your key, add it to the JavaScript code where it says 'YOUR_API_KEY'.</p>
+        </div>
+    </div>
+
+    <script>
+        // RSS feeds for Palmers Green news
+        const RSS_FEEDS = [
+            'https://www.enfieldindependent.co.uk/news/rss/',
+            'https://www.mylondon.news/news/north-london-news/rss.xml',
+            'https://www.thisislocallondon.co.uk/news/london_news/rss/',
+            'https://www.standard.co.uk/rss'
+        ];
+        const API_KEY = '5qtycuykjsnu76gacakplr7chiaqfily7jcmshgf'; // Get free key from rss2json.com
+
+        async function fetchNews() {
+            const container = document.getElementById('news-container');
+            const apiKeyInfo = document.getElementById('api-key-info');
+            
+            try {
+                let allNews = [];
+                let failedFeeds = [];
+                let palmersGreenStories = [];
+                
+                // Fetch from all RSS feeds
+                for (const feedUrl of RSS_FEEDS) {
+                    try {
+                        const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}&api_key=${API_KEY}`);
+                        const data = await response.json();
+                        
+                        if (data.status === 'error') {
+                            if (data.message.includes('API')) {
+                                apiKeyInfo.style.display = 'block';
+                                throw new Error('API key required');
+                            }
+                            failedFeeds.push(`${new URL(feedUrl).hostname}: ${data.message}`);
+                        } else if (data.items) {
+                            // Filter for Palmers Green related stories
+                            const pgStories = data.items.filter(item => {
+                                const keywords = ['palmers green', 'n13', 'n21', 'enfield', 'southgate', 'winchmore hill'];
+                                const text = (item.title + ' ' + (item.description || '')).toLowerCase();
+                                return keywords.some(keyword => text.includes(keyword));
+                            });
+                            
+                            palmersGreenStories = [...palmersGreenStories, ...pgStories];
+                            allNews = [...allNews, ...data.items];
+                        }
+                    } catch (e) {
+                        failedFeeds.push(`${new URL(feedUrl).hostname}: ${e.message}`);
+                    }
+                }
+                
+                // Display news or errors
+                if (palmersGreenStories.length > 0) {
+                    // Use Palmers Green specific stories first
+                    let html = '';
+                    palmersGreenStories.slice(0, 10).forEach(item => {
+                        html += `
+                        <div class="news-item">
+                            <a href="${item.link}" target="_blank">${item.title}</a>
+                            <div class="news-source">${new URL(item.link).hostname}</div>
+                        </div>`;
+                    });
+                    
+                    // Don't show failed feeds
+                    
+                    container.innerHTML = html;
+                } else if (allNews.length > 0) {
+                    let html = '';
+                    allNews.slice(0, 10).forEach(item => {
+                        html += `
+                        <div class="news-item">
+                            <a href="${item.link}" target="_blank">${item.title}</a>
+                            <div class="news-source">${new URL(item.link).hostname}</div>
+                        </div>`;
+                    });
+                    
+                    // Don't show failed feeds
+                    
+                    container.innerHTML = html;
+                } else {
+                    container.innerHTML = `<p>No recent news found for Palmers Green.</p>`;
+                }
+            } catch (error) {
+                container.innerHTML = `
+                <div class="error">
+                    <p>Failed to load news:</p>
+                    <p>${error.message}</p>
+                </div>`;
+                console.error(error);
+            }
+        }
+
+        // Function to refresh news
+        async function refreshNews() {
+            const button = document.getElementById('refresh-button');
+            const container = document.getElementById('news-container');
+            
+            // Disable button and show loading state
+            button.disabled = true;
+            container.classList.add('loading');
+            container.innerHTML = 'Refreshing news...';
+            
+            try {
+                await fetchNews();
+            } finally {
+                // Re-enable button
+                button.disabled = false;
+                container.classList.remove('loading');
+            }
+        }
+        
+        // Load news when page loads
+        window.addEventListener('DOMContentLoaded', fetchNews);
+    </script>
+</body>
+</html>
