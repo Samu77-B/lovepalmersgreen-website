@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: yourusername/your-repo-name
+  repo: Samu77-B/lovepalmersgreen-website
   branch: main
 
 media_folder: "images/uploads"
