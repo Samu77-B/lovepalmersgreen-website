@@ -1,0 +1,54 @@
+/* Footer Styles - Love Palmers Green */
+
+.footer-section {
+  background: linear-gradient(to bottom, #555555, #333333, #222222);
+  width: 100%;
+  padding: 40px 60px;
+  color: #ffffff;
+}
+
+.footer-logo {
+  margin: 20px 0;
+  display: block;
+}
+
+.footer-wrap {
+  color: #ffffff;
+  font-size: 0.9em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+/* Media queries for responsive design */
+@media screen and (max-width: 767px) {
+  .footer-section {
+    padding: 30px 20px;
+  }
+  
+  .footer-wrap {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .footer-links {
+    margin-top: 15px;
+    justify-content: center;
+  }
+}

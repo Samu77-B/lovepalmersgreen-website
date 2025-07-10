@@ -1,0 +1,26 @@
+/* Custom styles to make the home page menu match other pages */
+.nav-menu {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  margin-left: auto !important;
+}
+
+.nav-link {
+  margin: 0 10px !important;
+  padding: 5px 0 !important;
+  position: relative !important;
+}
+
+.nav-link.w--current {
+  color: var(--grey02) !important;
+  text-underline-offset: 10px !important;
+  text-decoration: underline !important;
+  -webkit-text-decoration-color: #93c13d !important;
+  text-decoration-color: #93c13d !important;
+}
+
+.nav-link:hover {
+  text-underline-offset: 10px !important;
+  text-decoration: underline !important;
+}

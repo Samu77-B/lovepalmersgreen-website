@@ -1,0 +1,118 @@
+/* Global padding fixes for all pages */
+
+/* Remove ALL padding and margins from navigation, hero sections and footer */
+.navbar-2, 
+.hero.cc-store-home-wrap, 
+.hero.greysection, 
+.hero.footerark,
+.intro-header,
+.navigation,
+.w-nav-brand,
+.nav-menu {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Target intro-header specifically to remove padding */
+.intro-header {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Full width for all hero sections with explicit padding removal */
+.hero {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Override footer padding */
+.hero.footerark {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Responsive padding for main content container */
+.w-layout-blockcontainer {
+  max-width: 940px;
+  margin: 0 auto !important;
+  padding: 20px !important;
+}
+
+/* Fix navbar and navigation padding */
+.navbar-2 .navigation,
+.navbar-2 .w-nav-brand,
+.navbar-2 .nav-menu,
+.navbar-2 .menu-button-2 {
+  padding: 0 !important;
+}
+
+/* Fix content spacing */
+.w-layout-blockcontainer.container-5.w-container {
+  padding-top: 20px !important;
+}
+
+/* Ensure content has proper padding */
+section > .w-layout-blockcontainer {
+  padding: 20px !important;
+}
+
+/* Tablet view */
+@media (max-width: 991px) and (min-width: 768px) {
+  .w-layout-blockcontainer {
+    padding: 15px !important;
+  }
+  
+  section > .w-layout-blockcontainer {
+    padding: 15px !important;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 767px) {
+  .w-layout-blockcontainer {
+    padding: 10px !important;
+  }
+  
+  section > .w-layout-blockcontainer {
+    padding: 10px !important;
+  }
+}
+
+/* Add spacing to content blocks for readability */
+.newsdiv, .motto-wrap {
+  margin-bottom: 20px !important;
+}
+
+/* Reset home-content-wrap to have no padding/margin to align with other pages */
+.home-content-wrap {
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+}
+
+/* Custom fix for paragraph content in blocks */
+.paragraph.introtext {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Ensure responsive behavior for embedded content */
+.code-embed, .w-embed {
+  width: 100%;
+  overflow: hidden;
+}

@@ -1,0 +1,159 @@
+:root {
+    --primary-color: #CC2128;  /* Red from logo */
+    --secondary-color: #2B8C44;  /* Green from logo */
+    --accent-color: #48bb78;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 76px;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-weight: 600;
+    color: var(--primary-color) !important;
+}
+
+.nav-link {
+    font-weight: 500;
+}
+
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('../images/3875825_9bdfbee1_original.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    color: white;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero .lead {
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.features .card {
+    transition: transform 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.features .card:hover {
+    transform: translateY(-5px);
+}
+
+.features .fas {
+    color: var(--primary-color);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color) !important;
+}
+
+/* Business Directory Styles */
+.business-card {
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.business-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Contact Form Styles */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* What's On Page Styles */
+.event-card {
+    margin-bottom: 20px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+}
+
+.event-date {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.badge {
+    padding: 0.5em 1em;
+    font-weight: 500;
+}
+
+.whats-on h2 {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* Useful Contacts Page Styles */
+.contact-category {
+    margin-bottom: 2rem;
+}
+
+.contact-item {
+    padding: 1rem;
+    border-radius: 5px;
+    background: #f8f9fa;
+    margin-bottom: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero .lead {
+        font-size: 1.2rem;
+    }
+}

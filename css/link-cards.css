@@ -1,0 +1,37 @@
+/* Link Card Styles */
+.lpg-link-card-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 30px 0;
+}
+
+.lpg-link-card {
+  flex: 1;
+  min-width: 200px;
+  background: linear-gradient(135deg, #555555, #333333, #222222);
+  color: white;
+  text-decoration: none;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.lpg-link-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+  background: linear-gradient(135deg, #444444, #222222, #111111);
+}
+
+.lpg-link-card-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.lpg-link-card-description {
+  font-size: 14px;
+}
