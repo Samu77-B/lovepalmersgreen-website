@@ -2,7 +2,6 @@ backend:
   name: github
   repo: Samu77-B/lovepalmersgreen-website
   branch: main
-
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
